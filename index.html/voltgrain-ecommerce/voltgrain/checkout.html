@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Volt &amp; Grain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="visually-hidden-focusable" href="#main">Skip to content</a>
+<div id="navbar-placeholder"></div>
+
+<main id="main">
+  <header class="vg-page-header">
+    <p class="vg-eyebrow mb-2">Step 2 of 2</p>
+    <h1>Checkout</h1>
+  </header>
+
+  <section class="vg-section-tight">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-7">
+          <form id="checkoutForm" novalidate>
+            <div class="vg-form-card mb-4">
+              <h2 class="mb-3" style="font-size:1.1rem;">Shipping details</h2>
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="fullName" class="form-label">Full name</label>
+                  <input type="text" class="form-control" id="fullName" name="fullName" required>
+                  <div class="invalid-feedback" data-error-for="fullName"></div>
+                </div>
+                <div class="col-12">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+                  <div class="invalid-feedback" data-error-for="email"></div>
+                </div>
+                <div class="col-12">
+                  <label for="address" class="form-label">Street address</label>
+                  <input type="text" class="form-control" id="address" name="address" required>
+                  <div class="invalid-feedback" data-error-for="address"></div>
+                </div>
+                <div class="col-8">
+                  <label for="city" class="form-label">City</label>
+                  <input type="text" class="form-control" id="city" name="city" required>
+                  <div class="invalid-feedback" data-error-for="city"></div>
+                </div>
+                <div class="col-4">
+                  <label for="zip" class="form-label">Postal code</label>
+                  <input type="text" class="form-control" id="zip" name="zip" required>
+                  <div class="invalid-feedback" data-error-for="zip"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="vg-form-card mb-4">
+              <h2 class="mb-3" style="font-size:1.1rem;">Payment</h2>
+              <p class="vg-form-msg mb-3">This is a demo checkout &mdash; no real payment is processed.</p>
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="cardNumber" class="form-label">Card number</label>
+                  <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="4242 4242 4242 4242" required>
+                  <div class="invalid-feedback" data-error-for="cardNumber"></div>
+                </div>
+                <div class="col-6">
+                  <label for="cardExpiry" class="form-label">Expiry (MM/YY)</label>
+                  <input type="text" class="form-control" id="cardExpiry" name="cardExpiry" placeholder="09/28" required>
+                  <div class="invalid-feedback" data-error-for="cardExpiry"></div>
+                </div>
+                <div class="col-6">
+                  <label for="cardCvc" class="form-label">CVC</label>
+                  <input type="text" class="form-control" id="cardCvc" name="cardCvc" placeholder="123" required>
+                  <div class="invalid-feedback" data-error-for="cardCvc"></div>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn vg-btn-primary vg-btn-lg w-100">Place order</button>
+          </form>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="vg-summary-card" id="checkoutSummary">
+            <h2 class="mb-3" style="font-size:1.1rem;">Order summary</h2>
+            <div data-checkout-items></div>
+            <div class="vg-summary-row mt-2"><span>Subtotal</span><span data-sum-subtotal>$0.00</span></div>
+            <div class="vg-summary-row"><span>Discount</span><span data-sum-discount>$0.00</span></div>
+            <div class="vg-summary-row"><span>Shipping</span><span data-sum-shipping>&mdash;</span></div>
+            <div class="vg-summary-row"><span>Tax (est.)</span><span data-sum-tax>$0.00</span></div>
+            <div class="vg-summary-row vg-summary-total"><span>Total</span><span data-sum-total>$0.00</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderShell('shop');
+  renderCheckoutSummary();
+  bindCheckoutForm();
+</script>
+</body>
+</html>

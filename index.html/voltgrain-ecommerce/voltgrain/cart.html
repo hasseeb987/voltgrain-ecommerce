@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your cart — Volt &amp; Grain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="visually-hidden-focusable" href="#main">Skip to content</a>
+<div id="navbar-placeholder"></div>
+
+<main id="main">
+  <header class="vg-page-header">
+    <p class="vg-eyebrow mb-2">Step 1 of 2</p>
+    <h1>Your cart</h1>
+  </header>
+
+  <section class="vg-section-tight">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-8">
+          <div id="cartList"></div>
+          <div id="cartEmpty" class="d-none"></div>
+        </div>
+        <div class="col-lg-4">
+          <div class="vg-summary-card d-none" id="cartSummary">
+            <h2 class="mb-3" style="font-size:1.1rem;">Order summary</h2>
+            <div class="vg-summary-row"><span>Subtotal</span><span data-sum-subtotal>$0.00</span></div>
+            <div class="vg-summary-row"><span>Discount</span><span data-sum-discount>$0.00</span></div>
+            <div class="vg-summary-row"><span>Shipping</span><span data-sum-shipping>&mdash;</span></div>
+            <div class="vg-summary-row"><span>Tax (est.)</span><span data-sum-tax>$0.00</span></div>
+            <div class="vg-summary-row vg-summary-total"><span>Total</span><span data-sum-total>$0.00</span></div>
+
+            <form id="couponForm" class="mt-3 d-flex gap-2">
+              <label for="couponInput" class="visually-hidden">Coupon code</label>
+              <input type="text" id="couponInput" class="form-control form-control-sm" placeholder="Coupon code">
+              <button class="btn vg-btn-secondary vg-btn-sm" type="submit">Apply</button>
+            </form>
+            <p class="vg-form-msg" id="couponMsg" role="status" aria-live="polite">Try <strong>GRAIN10</strong> or <strong>FIRSTSPIN</strong>.</p>
+
+            <a href="checkout.html" class="btn vg-btn-primary vg-btn-lg w-100 mt-3">Proceed to checkout</a>
+            <a href="shop.html" class="d-block text-center vg-form-msg mt-2">Continue shopping</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="footer-placeholder"></div>
+<button id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderShell('shop');
+  renderCartPage();
+  bindCouponForm();
+</script>
+</body>
+</html>
